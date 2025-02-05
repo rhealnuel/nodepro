@@ -35,5 +35,5 @@ connect(MONGO_URL)
         console.log(`app running at port ${PORT}`)
     })
 }).catch((error) =>{
-    console.log|(error)
+    console.log(error)
 })
