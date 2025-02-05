@@ -13,7 +13,10 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(cors({ origin: "https://emmanuel-kawekwune.vercel.app", credentials: true }));
+app.use(cors());
+
+// If you want to allow credentials (cookies, authorization headers, etc.)
+app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE", allowedHeaders: "Content-Type,Authorization" }));
 app.use('/uploads', express.static('uploads'))
 
 //routes
