@@ -13,16 +13,16 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-// Enable CORS
+// CORS setup to allow any origin and no credentials
 app.use(cors({
-    origin: "*", // Change to your frontend URL for security
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-    credentials: true
+    origin: "*",  // Allow all origins
+    methods: "GET,POST,PUT,DELETE",  // Allowed HTTP methods
+    allowedHeaders: "Content-Type,Authorization",  // Allowed headers
+    credentials: false  // No credentials required (no cookies, no sessions)
   }));
   
-  // Handle preflight requests
-  app.options("*", cors());
+  // Handle preflight requests (for certain types of requests)
+  app.options("*", cors());  // Allow preflight OPTIONS requests
 // If you want to allow credentials (cookies, authorization headers, etc.)
 // app.use(cors({ origin: "*", methods: "GET,POST,PUT,DELETE", allowedHeaders: "Content-Type,Authorization" }));
 app.use('/uploads', express.static('uploads'))
