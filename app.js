@@ -15,12 +15,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 // CORS setup to allow any origin and no credentials
 app.use(cors({
-    origin: "*",  // Allow all origins
-    methods: "GET,POST,PUT,DELETE",  // Allowed HTTP methods
-    allowedHeaders: "Content-Type,Authorization",  // Allowed headers
-    credentials: false  // No credentials required (no cookies, no sessions)
+    origin: 'http://localhost:3000', // Replace with your frontend URL
+    methods: 'GET, POST, PUT, DELETE',
+    allowedHeaders: 'Content-Type, Authorization'
   }));
-  
   // Handle preflight requests (for certain types of requests)
   app.options("*", cors());  // Allow preflight OPTIONS requests
 // If you want to allow credentials (cookies, authorization headers, etc.)
